@@ -17,15 +17,12 @@ int CountPrimesSlow(const int n)
 		return 0;
 	}
 
-    auto numComparisons = 0;
-
-    //std::array<int, MaxPrime> foundPrimes;
-    //int foundPrimes[MaxPrime] = {};
     int* foundPrimes = FoundPrimes;
     auto numFoundPrimes = 0;
 
     auto i = 0, j = 0;
 
+    auto numComparisons = 0;
     for (i = 2; i < n; ++i)
     {
         for (j = 2; j < i; ++j)
@@ -44,7 +41,6 @@ int CountPrimesSlow(const int n)
     }
 
     std::cout << "(comparisons: " << numComparisons << ") ";
-
     return numFoundPrimes + 1;
 }
 
@@ -55,14 +51,11 @@ int CountPrimesFast(const int n)
         return 0;
     }
 
-    auto numComparisons = 0;
-
-	//std::array<int, MaxPrime> foundPrimes = { 2 };
-    //int foundPrimes[MaxPrime] = { 2 };
     int* foundPrimes = FoundPrimes;
     foundPrimes[0] = 2;
     auto numFoundPrimes = 1;
 
+    auto numComparisons = 0;
     for (auto testValue = 2; testValue < n; ++testValue)
     {
 		auto primeIndex = 0;
@@ -81,7 +74,6 @@ int CountPrimesFast(const int n)
     }
 
     std::cout << "(comparisons:  " << numComparisons << ") ";
-
     return numFoundPrimes + 1;
 }
 
